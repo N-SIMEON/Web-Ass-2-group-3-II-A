@@ -1,7 +1,8 @@
 # 🥔 AgriStack — Irish Potato Marketplace
 Built for educational purposes — Musanze, Rwanda, 2026.
+
 # Web-Ass-2-group-3-II-A
--
+
 > **Connecting Musanze farmers directly to Rwanda's bulk buyers.**
 
 AgriStack is a cooperative harvest listing and bulk order management system built for Irish potato farmers and cooperatives in Musanze District, Rwanda. It eliminates middlemen, enables transparent pricing, and connects farmers directly with aggregators and bulk buyers.
@@ -15,7 +16,6 @@ AgriStack is a cooperative harvest listing and bulk order management system buil
 - [Setup Instructions](#setup-instructions)
 - [Database Import Guide](#database-import-guide)
 - [Demo Accounts](#demo-accounts)
-- [Screenshots](#screenshots)
 - [Team & Git](#team--git)
 
 ---
@@ -51,34 +51,34 @@ AgriStack is a cooperative harvest listing and bulk order management system buil
 ```
 agristack/
 ├── app/
-│   ├── controllers/          # Business logic
+│   ├── controllers/
 │   │   ├── AuthController.php
 │   │   ├── ListingController.php
 │   │   ├── BookingController.php
 │   │   ├── AdminController.php
 │   │   └── DashboardController.php
-│   ├── models/               # Database queries (prepared statements)
+│   ├── models/
 │   │   ├── User.php
 │   │   ├── Listing.php
 │   │   ├── Booking.php
 │   │   └── AuditLog.php
-│   └── views/                # HTML templates (no SQL here)
-│       ├── layouts/          # header.php, footer.php, sidebar.php
-│       ├── auth/             # login.php, register.php
-│       ├── listings/         # index, show, create, edit
-│       ├── bookings/         # index, create
-│       ├── farmer/           # dashboard.php
-│       ├── buyer/            # dashboard.php
-│       └── admin/            # dashboard, listings, orders, users, audit
+│   └── views/
+│       ├── layouts/
+│       ├── auth/
+│       ├── listings/
+│       ├── bookings/
+│       ├── farmer/
+│       ├── buyer/
+│       └── admin/
 ├── config/
-│   └── database.php          # DB config + singleton connection
+│   └── database.php
 ├── public/
-│   └── index.php             # Front controller / router
+│   └── index.php
 ├── assets/
-│   ├── css/style.css         # Full stylesheet
-│   └── js/main.js            # Live estimator + UI interactions
+│   ├── css/style.css
+│   └── js/main.js
 ├── database/
-│   └── schema.sql            # Full schema + seed data
+│   └── schema.sql
 ├── docs/
 │   ├── problem.md
 │   ├── stakeholders.md
@@ -102,64 +102,89 @@ agristack/
 - A web browser (Chrome/Firefox recommended)
 
 ### Step 1 — Clone / Copy the Project
-```bash
-# If using Git:
-git clone https://github.com/your-team/agristack.git
 
-# Copy to your web root:
-# XAMPP: C:/xampp/htdocs/agristack
-# Laragon: C:/laragon/www/agristack
+```bash
+git clone https://github.com/your-team/agristack.git
 ```
 
+Copy to your web root:
+
+```
+XAMPP: C:/xampp/htdocs/agristack
+Laragon: C:/laragon/www/agristack
+```
+
+---
+
 ### Step 2 — Import the Database
-See [Database Import Guide](#database-import-guide) below.
+
+Follow the instructions in **Database Import Guide** below.
+
+---
 
 ### Step 3 — Configure Database Connection
-Open `config/database.php` and update:
+
+Open:
+
+```
+config/database.php
+```
+
+Update:
+
 ```php
 define('DB_HOST', 'localhost');
-define('DB_USER', 'root');        // your MySQL username
-define('DB_PASS', '');            // your MySQL password
+define('DB_USER', 'root');
+define('DB_PASS', '');
 define('DB_NAME', 'agristack_db');
 ```
 
+---
+
 ### Step 4 — Update BASE_URL
-In `config/database.php`, set your base URL:
+
 ```php
 define('BASE_URL', 'http://localhost/agristack/public');
 ```
 
+---
+
 ### Step 5 — Start Apache & MySQL
-Start your XAMPP/Laragon/WAMP control panel and ensure both Apache and MySQL are running.
+
+Start your **XAMPP/Laragon/WAMP** control panel and ensure both services are running.
+
+---
 
 ### Step 6 — Open the Application
-Navigate to: `http://localhost/agristack/public/index.php`
+
+```
+http://localhost/agristack/public/index.php
+```
 
 ---
 
 ## 🗄️ Database Import Guide
 
 ### Option A — phpMyAdmin (Recommended)
+
 1. Open `http://localhost/phpmyadmin`
-2. Click **New** to create a database named `agristack_db`
-3. Select `agristack_db`, click the **Import** tab
-4. Click **Choose File**, select `database/schema.sql`
-5. Click **Go** / **Import**
+2. Create database **agristack_db**
+3. Select the database
+4. Click **Import**
+5. Upload `database/schema.sql`
+6. Click **Go**
+
+---
 
 ### Option B — MySQL Command Line
+
 ```bash
 mysql -u root -p
-# Enter your password
 CREATE DATABASE agristack_db;
 EXIT;
 
 mysql -u root -p agristack_db < database/schema.sql
 ```
-
-### Option C — TablePlus / DBeaver
-1. Connect to `localhost:3306`
-2. Create database `agristack_db`
-3. Run SQL file: `database/schema.sql`
 
 ---
 
@@ -173,35 +198,53 @@ mysql -u root -p agristack_db < database/schema.sql
 | Buyer | robert@agristack.rw | password |
 | Buyer | agnes@agristack.rw | password |
 
-> ⚠️ **Note:** The seed data uses `password` as the password for all demo accounts. In production, change all passwords immediately.
+⚠️ Change passwords in production.
 
 ---
 
-## 👥 Team & Git
+# 👥 Team & Git
 
-### Git Workflow
-- Minimum **25 commits** with meaningful messages
-- Every team member minimum **3 commits**
-- Branch strategy: `main` (stable) + feature branches
-- Commit message format: `feat: add listing approval`, `fix: booking qty validation`, `docs: add user stories`
+## Git Workflow
 
-### Team Roles
-| Member | Role | Responsibilities |
-|--------|------|-----------------|
-| Member 1 | Tech Lead | MVC architecture, routing, models |
-| Member 2 | Frontend | CSS, views, responsive design |
-| Member 3 | Backend | Controllers, auth, admin features |
-| Member 4 | QA/Docs | Testing, documentation, deployment |
-| Member 5 | Full Stack | Booking system, dashboard stats |
+- Minimum **25 commits**
+- Each member minimum **3 commits**
+- Branch strategy: `main` + feature branches
+- Commit message examples:
+  - `feat: add harvest listing`
+  - `fix: booking quantity validation`
+  - `docs: update README`
+
+---
+
+## 👨‍💻 Group Members & Roles
+
+| Name | Registration Number | Role | Responsibilities |
+|-----|-----|-----|-----|
+| **Gihozo Patience** | 25/30654 | Frontend Developer | UI design, CSS styling, responsive pages |
+| **Nayituriki Simeon** | 25/30692 | Tech Lead & Backend Developer | MVC architecture, routing system, database logic |
+| **Iyabose Ishimwe Nicole** | 25/30365 | QA & Documentation | Testing, documentation, reporting |
+| **Umurerwa Alliance** | 25/30681 | Backend Developer | Controllers, authentication, admin features |
+| **Dushimimana Salme** | 25/28419 | UI/UX Designer | Interface design, usability improvements |
+| **Gafar Mouatsm Babikir** | 25/28635 | Full Stack Developer | Booking system, dashboard statistics |
 
 ---
 
 ## 🌐 Live Deployment
-**Live URL:** [https://agristack.your-host.com](https://agristack.your-host.com)
 
-*Deployed on: InfinityFree / Hostinger / Railway (update with actual URL)*
+Live URL:
+
+```
+https://agristack.your-host.com
+```
+
+Hosting options:
+- InfinityFree
+- Hostinger
+- Railway
 
 ---
 
 ## 📄 License
-Built for educational purposes — Musanze, Rwanda, 2024.
+
+Built for **educational purposes**  
+Musanze District, Rwanda — **2026**
