@@ -143,7 +143,7 @@ define('DB_NAME', 'agristack_db');
 ### Step 4 — Update BASE_URL
 
 ```php
-define('BASE_URL', 'http://localhost/agristack/public');
+define('BASE_URL', 'http://localhost/agristack/');
 ```
 
 ---
@@ -157,7 +157,7 @@ Start your **XAMPP/Laragon/WAMP** control panel and ensure both services are run
 ### Step 6 — Open the Application
 
 ```
-http://localhost/agristack/public/index.php
+http://localhost/agristack/index.php
 ```
 
 ---
@@ -233,7 +233,7 @@ mysql -u root -p agristack_db < database/schema.sql
 Live URL:
 
 ```
-https://agristack.your-host.com
+https://agristack.infinityfree.me
 ```
 
 Hosting options:
