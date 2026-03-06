@@ -72,8 +72,7 @@ agristack/
 │       └── admin/
 ├── config/
 │   └── database.php
-├── public/
-│   └── index.php
+├── index.php
 ├── assets/
 │   ├── css/style.css
 │   └── js/main.js
