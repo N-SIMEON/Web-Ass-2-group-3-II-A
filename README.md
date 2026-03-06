@@ -1,5 +1,7 @@
 # 🥔 AgriStack — Irish Potato Marketplace
-
+Built for educational purposes — Musanze, Rwanda, 2026.
+# Web-Ass-2-group-3-II-A
+-
 > **Connecting Musanze farmers directly to Rwanda's bulk buyers.**
 
 AgriStack is a cooperative harvest listing and bulk order management system built for Irish potato farmers and cooperatives in Musanze District, Rwanda. It eliminates middlemen, enables transparent pricing, and connects farmers directly with aggregators and bulk buyers.
